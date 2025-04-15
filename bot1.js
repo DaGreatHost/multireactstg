@@ -10,7 +10,7 @@ bot.on('channel_post', async (ctx) => {
         const emojis = ['❤️', '🔥', '👍', '🎉', '😂', '💯', '😍', '👏'];
         const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
         await ctx.telegram.setMessageReaction(ctx.chat.id, messageId, [
-            {{ type: 'emoji', emoji: randomEmoji }}
+            { type: 'emoji', emoji: randomEmoji }
         ]);
     } catch (error) {
         console.error(`Bot 1 reaction error:`, error);
