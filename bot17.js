@@ -7,7 +7,7 @@ const bot = new Telegraf(process.env.BOT17_TOKEN);
 bot.on('channel_post', async (ctx) => {
     try {
         const messageId = ctx.channelPost.message_id;
-        const emojis = ['❤️', '🔥', '👍', '🎉', '😂', '💯', '😍', '👏'];
+        const emojis = ['❤️', '🔥', '👍', '🎉', '👌', '💯', '😍', '👏'];
         const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
         await ctx.telegram.setMessageReaction(ctx.chat.id, messageId, [
             { type: 'emoji', emoji: randomEmoji }
