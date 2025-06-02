@@ -5,14 +5,14 @@ require('dotenv').config();
 
 const pool = new Pool({ connectionString: process.env.POSTGRES_URL });
 const bot = new Telegraf(process.env.BOT22_TOKEN);
-const ADMIN_IDS = ['6347842836', '7712850427'];
+const ADMIN_IDS = ['5521402866'];
 
 bot.on('channel_post', async (ctx) => {
     const chatId = ctx.chat.id.toString();
     try {
         const res = await pool.query('SELECT channel_id FROM whitelist WHERE channel_id = $1', [chatId]);
         if (res.rowCount === 0) {
-            await ctx.telegram.sendMessage(chatId, `⚠️ This bot is not authorized in this channel.\n\nTo activate reactions, please request access via 👉 @trendspaymentbot`);
+            await ctx.telegram.sendMessage(chatId, `⚠️ This bot is not authorized in this channel.\n\nTo activate reactions, please request access via 👉 https://t.me/neyb01`);
             return;
         }
 
